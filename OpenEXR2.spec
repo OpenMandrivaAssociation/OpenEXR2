@@ -1,11 +1,12 @@
 %define major 25
 %define api		2_5
-%define devname	%mklibname %{name} %{api} -d
+%define devname	%mklibname %{oname} %{api} -d
 %define libname	%mklibname IlmImf %{api} %{major}
 #define libname_ilm_util	%mklibname IlmImfUtil %{api} %{major}
 %define libname_ilm	%mklibname ilmbase %{api} %{major}
 %define develname_ilm	%mklibname ilmbase %{api} -d
 
+%define oname openexr
 
 Summary:	A high dynamic-range (HDR) image file format
 Name:		openexr2
