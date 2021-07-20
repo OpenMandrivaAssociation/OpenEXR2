@@ -14,7 +14,7 @@ Release:	1
 License:	BSD
 Group:		Graphics
 Url:		http://www.openexr.com
-Source0:  https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
+Source0:  https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v%{version}/openexr-%{version}.tar.gz
 #BuildRequires:	fltk-devel
 BuildRequires:  cmake
 #BuildRequires:	pkgconfig(IlmBase) >= 2.2.1
