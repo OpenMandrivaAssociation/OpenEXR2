@@ -64,7 +64,7 @@ Provides:	%{name}-devel = %{version}-%{release}
 Libraries and includes files for developing programs based on %{name}.
 
 %prep
-%setup -qn OpenEXR-%{version}
+%setup -q -n OpenEXR-%{version}
 %autopatch -p1
 
 %build
