@@ -20,9 +20,9 @@ Source0:  https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags
 BuildRequires:  cmake
 #BuildRequires:	pkgconfig(IlmBase) >= 2.2.1
 BuildRequires:	pkgconfig(zlib)
+BuildRequires:	pkgconfig(python3)
 
 Provides:	OpenEXR2 = %{version}-%{release}
-Provides:	openexr2 = %{version}-%{release}
 
 %description
 Industrial Light & Magic developed the OpenEXR format in response to the demand
@@ -64,13 +64,19 @@ Provides:	%{name}-devel = %{version}-%{release}
 %description -n %{devname}
 Libraries and includes files for developing programs based on %{name}.
 
+%package -n python-%{name}
+Summary:	Python bindings for %{name}
+Group:		Development/Python
+
+%description -n python-%{name}
+Python bindings for %{name}
+
 %prep
-%setup -q -n openexr-%{version}
-%autopatch -p1
+%autosetup -p1 -n openexr-%{version}
+%cmake
 
 %build
-%cmake
-%make_build
+%make_build -C build
 
 %install
 %make_install -C build
@@ -78,6 +84,14 @@ Libraries and includes files for developing programs based on %{name}.
 # Remove doc files installed by make install, we package them in %files
 rm -rf %{buildroot}%{_docdir}/OpenEXR-%{version}
 rm -rf %{buildroot}%{_docdir}/OpenEXR
+
+# Headers for Py* stuff are useless, they're used only to build the
+# python bindings inside the tree
+rm -rf %{buildroot}%{_includedir}/OpenEXR/Py*
+
+for i in %{buildroot}%{_bindir}/*; do
+	mv $i ${i}2
+done
 
 %files
 %{_bindir}/exr*
@@ -123,3 +137,10 @@ rm -rf %{buildroot}%{_docdir}/OpenEXR
 %{_libdir}/libImath-%{api}.so
 %{_libdir}/pkgconfig/IlmBase.pc
 %{_libdir}/cmake/IlmBase/
+
+%files -n python-%{name}
+%{_libdir}/cmake/PyIlmBase
+%{_libdir}/libPyIex_Python*.so*
+%{_libdir}/libPyImath_Python*.so*
+%{_libdir}/python*/site-packages/*.so
+%{_libdir}/pkgconfig/PyIlmBase.pc
