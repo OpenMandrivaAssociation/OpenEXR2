@@ -21,6 +21,7 @@ BuildRequires:  cmake
 #BuildRequires:	pkgconfig(IlmBase) >= 2.2.1
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(python3)
+BuildRequires:	cmake(boost_python)
 
 Provides:	OpenEXR2 = %{version}-%{release}
 
