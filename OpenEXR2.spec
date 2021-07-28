@@ -23,6 +23,7 @@ BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	cmake(boost_python)
 BuildRequires:	python-numpy
+BuildRequires:	boost-devel
 
 Provides:	OpenEXR2 = %{version}-%{release}
 
