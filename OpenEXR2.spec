@@ -1,4 +1,5 @@
-%define major 26
+%define major 25
+%define ilmimfmajor 26
 %define api		2_5
 %define devname	%mklibname %{oname} %{api} -d
 %define libname	%mklibname IlmImf %{api} %{major}
@@ -102,8 +103,8 @@ done
 %doc doc/*
 
 %files -n %{libname}
-%{_libdir}/libIlmImf-%{api}.so.%{major}{,.*}
-%{_libdir}/libIlmImfUtil-%{api}.so.%{major}{,.*}
+%{_libdir}/libIlmImf-%{api}.so.%{ilmimfmajor}{,.*}
+%{_libdir}/libIlmImfUtil-%{api}.so.%{ilmimfmajor}{,.*}
 
 %files -n %{libname_ilm}
 %{_libdir}/libHalf-%{api}.so.%{major}{,.*}
