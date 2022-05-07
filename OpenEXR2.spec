@@ -1,4 +1,4 @@
-%define major 25
+%define major 26
 %define api		2_5
 %define devname	%mklibname %{oname} %{api} -d
 %define libname	%mklibname IlmImf %{api} %{major}
