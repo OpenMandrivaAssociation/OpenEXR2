@@ -15,7 +15,7 @@ Version:	2.5.8
 Release:	2
 License:	BSD
 Group:		Graphics
-Url:		http://www.openexr.com
+Url:		https://www.openexr.com
 Source0:  https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v%{version}/openexr-%{version}.tar.gz
 #BuildRequires:	fltk-devel
 BuildRequires:  cmake
